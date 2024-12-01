@@ -1,4 +1,6 @@
+// lib/main.dart
 import 'package:flutter/material.dart';
+import 'technician_list_page.dart'; 
 
 void main() {
   runApp(const HomeFixManagerApp());
@@ -18,13 +20,13 @@ class HomeFixManagerApp extends StatelessWidget {
           bodyLarge: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
       ),
-      home:  HomePage(),
+      home: HomePage(),
     );
   }
 }
 
 class HomePage extends StatelessWidget {
-   HomePage({super.key});
+  HomePage({super.key});
 
   final List<Map<String, dynamic>> categories = [
     {'name': 'Plomberie', 'icon': Icons.plumbing, 'color': Colors.blue},
@@ -57,16 +59,16 @@ class HomePage extends StatelessWidget {
                 itemBuilder: (context, index) {
                   var category = categories[index];
                   return Card(
-                    elevation: 5,  
+                    elevation: 5,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),  
+                      borderRadius: BorderRadius.circular(12),
                     ),
                     margin: const EdgeInsets.symmetric(vertical: 8.0),
                     child: ListTile(
                       contentPadding: const EdgeInsets.all(10),
                       leading: Icon(
                         category['icon'],
-                        size: 50, 
+                        size: 50,
                         color: category['color'],
                       ),
                       title: Text(
@@ -89,28 +91,6 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class TechnicianListPage extends StatelessWidget {
-  final String category;
-
-  const TechnicianListPage({super.key, required this.category});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Techniciens en $category'),
-        backgroundColor: Colors.blueAccent,
-      ),
-      body: Center(
-        child: Text(
-          'Liste des techniciens pour $category',
-          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),
         ),
       ),
     );
